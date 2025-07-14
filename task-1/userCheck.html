@@ -1,0 +1,72 @@
+<script>
+
+    
+    function giveAdvice(isStudent) {
+
+        if (isStudent) {
+            return 'Studey Hard Please'
+        } 
+
+        return 'Take Some rest'
+
+    }
+
+
+    function age2string(age) {
+
+        if (age < 0) {
+            return 'Error'
+        }
+
+        if (age >= 0 && age < 13) {
+            return 'Kid'
+        } else if (age >= 13 && age <= 17) {
+            return 'Teen'
+        } else if (age >= 18 && age <= 59 ) {
+            return 'Adult'
+        } 
+        return 'Senior'
+    }
+
+
+    function displayData(name, ageString, isStudent) {
+
+        let advice = giveAdvice(isStudent)
+
+        message = `Hello ${name} \nCaregory: ${ageString} \n${advice}`
+
+        console.log(message)
+
+        document.write(message)
+
+        window.alert(message)
+
+
+
+    }
+
+</script>
+
+
+
+
+<script>
+    // if I use _var it means it is user input (not secure)
+
+    let _name = window.prompt("Enter your name")
+    
+    let _birthYear = window.prompt("Enter your birth year")
+
+    let _isStudent = window.confirm("Are you a student?")
+
+
+    // Process the Age 
+    let currentYear = new Date().getFullYear()
+    let birthYear   = new Date().setFullYear(_birthYear)
+    let age         = currentYear - birthYear
+
+    let ageString = age2string(age)
+
+    displayData(_name, ageString, _isStudent)
+    
+</script>
